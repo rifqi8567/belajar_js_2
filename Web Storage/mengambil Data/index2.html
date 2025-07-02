@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Riwayat Pencarian</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    form {
+      display: flex;
+      flex-direction: row;
+    }
+    form input {
+      padding: 5px 10px;
+    }
+    #search-history {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h4>Riwayat Pencarian</h4>
+  <div id="search-history"></div>
+
+  <form onsubmit="onSearch(event)">
+    <input type="text" id="searchkey" name="searchkey" placeholder="Search Something" />
+    <input type="submit" value="Search" />
+  </form>
+
+  <script>
+    // Ambil data dari localStorage saat pertama kali halaman dibuka
+    var searchList = JSON.parse(localStorage.getItem('searchkey')) || [];
+
+    function renderSearchHistory() {
+      var list = '';
+      for (var i = 0; i < searchList.length; i++) {
+        list += '<p>' + searchList[i] + '</p>';
+      }
+      document.getElementById("search-history").innerHTML = list;
+    }
+
+    function onSearch(e) {
+      e.preventDefault(); // Mencegah reload halaman
+      var searchValue = document.getElementById("searchkey").value.trim();
+      if (searchValue) {
+        searchList.push(searchValue);
+        localStorage.setItem('searchkey', JSON.stringify(searchList));
+        renderSearchHistory();
+        document.getElementById("searchkey").value = ""; // Kosongkan input
+      }
+    }
+
+    // Tampilkan riwayat saat pertama kali halaman dibuka
+    renderSearchHistory();
+  </script>
+</body>
+</html>

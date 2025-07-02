@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form{
+            display: flex;
+            flex-direction: row;
+        }
+
+        form input {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h4>Riwayat Pencarian</h4>
+        <div id="search-history"></div>
+        <input type="text" id="searchkey" name="searchkey" placeholder="Search Something"><br>
+        <input type="submit" value="Search" onclick="onSearch()">
+    </form>
+
+    <!-- !Langkah 2 - Isi tag <script> dengan fungsi onSearch() -->
+    <script>
+        var searchlist = JSON.parse(localStorage.getItem('searchkey')) || []; // jika searchKey bernilai undefined, maka set searchList sebagai empty array
+        function onSearch() {
+            var searchValue = document.getElementById("searchkey").value;
+            searchlist.push(searchValue); // memasukan kata pencarian ke dalam array
+
+            var searchListString = JSON.stringify(searchlist); // mengubah array menjadi string
+            localStorage.setItem('searchkey', searchListString); // menyimpan pencarian dengan key 'searchKey'
+        
+        // Kemudian kita juga menggunakan JSON.stringify() untuk merubah array searchList menjadi string, hal ini dilakukan karena data yang dapat disimpan ke dalam local storage hanya tipe data string.
+
+        // ! Dari kode di atas dapat kita lihat bahwa kata yang telah dicari dimasukan ke dalam array. Hal ini bertujuan agar kita dapat menyimpan kata yang dicari pengguna sebanyak mungkin
+
+        function getSearchHistory() {
+            var list = '';
+            for (var i = 0; i < searchList.length; i++) {
+                 list += '<p>' + searchList[i] + '</p>';
+            }
+            document.getElementById("search-history").innerHTML = list;
+
+             // memanggil fungsi getSearchHistory
+
+             if(searchList.length > 0) { // Jika panjang array searchList > 0
+                getSearchHistory();  // panggil fungsi getSearchHistory
+             }
+
+            //  📝  Catatan:
+
+            // Riwayat pencarian akan tampil setelah halaman direfresh.
+        }
+        }
+    </script>
+</body>
+</html>
