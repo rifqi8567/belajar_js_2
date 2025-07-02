@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Storage</title>
+    <style>
+        body{
+            background: white;
+            color: #323232;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .list-wrapper{
+            width: 50%;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .list{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="list-wrapper">
+        <div class="list">
+            <div style="flex: 1">Susu - Rp. 18.000,-</div>
+            <button onclick="addToCart('susu', 1)">Add to Cart</button>
+        </div>
+        <div class="list">
+            <div style="flex: 1">Telor -  Rp. 28.000,-</div>
+            <button onclick="addToCart('telor', 1)">Add to Cart</button>
+        </div>
+        <div class="list">
+            <div style="flex: 1">Madu -  Rp. 48.000,-</div>
+            <button onclick="addToCart('madu', 1)">Add to Cart</button>
+        </div>
+        <div class="list">
+            <div style="flex: 1">Jahe -  Rp. 8.000,-</div>
+            <button onclick="addToCart('jahe', 1)">Add to Cart</button>
+        </div>
+    </div>
+</body>
+<script src="save.js"></script>
+</html>
