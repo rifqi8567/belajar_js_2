@@ -12,3 +12,15 @@
 
 localStorage.setItem('key', value);
 
+
+
+// cth
+
+// Buat kode kamu di bawah ini
+
+// Menyimpan data pertama
+localStorage.setItem("search", "pencarian 1");
+
+// Menyimpan data kedua (array diubah jadi string dengan JSON.stringify)
+const hewan = ["kucing", "anjing", "kambing"];
+localStorage.setItem("hewan", JSON.stringify(hewan));
