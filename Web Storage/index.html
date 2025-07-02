@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form{
+            display: flex;
+            flex-direction: row;
+        }
+
+        form input {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text" id="searchkey" name="searchkey" placeholder="Search Something"><br>
+        <input type="submit" value="Search" onclick="onSearch()">
+    </form>
+
+    <!-- !Langkah 2 - Isi tag <script> dengan fungsi onSearch() -->
+    <script>
+        var searchlist = [];
+        function onSearch() {
+            var searchValue = document.getElementById("searchkey").value;
+            searchlist.push(searchValue); // memasukan kata pencarian ke dalam array
+
+            var searchListString = JSON.stringify(searchlist); // mengubah array menjadi string
+            localStorage.setItem('searchkey', searchListString); // menyimpan pencarian dengan key 'searchKey'
+        
+        // Kemudian kita juga menggunakan JSON.stringify() untuk merubah array searchList menjadi string, hal ini dilakukan karena data yang dapat disimpan ke dalam local storage hanya tipe data string.
+
+        // ! Dari kode di atas dapat kita lihat bahwa kata yang telah dicari dimasukan ke dalam array. Hal ini bertujuan agar kita dapat menyimpan kata yang dicari pengguna sebanyak mungkin
+        }
+    </script>
+</body>
+</html>
