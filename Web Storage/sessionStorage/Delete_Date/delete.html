@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Storage</title>
+    <style>
+        body{
+            background: white;
+            color: #323232;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .list-wrapper{
+            width: 50%;
+            flex-direction: row;
+            justify-content: space-between;
+            
+        }
+
+        .list{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="list-wrapper">
+        <div style="margin-bottom: 15px;"><button onclick="emptyCart()">Empty cart</button></div>
+        <div class="list">
+            <div style="flex: 1">Susu - Rp. 18.000,-</div>
+            <button onclick="addToCart('susu', 1)">Add to Cart</button>
+            <button onclick="removeFromCart('susu')">remove From Cart</button>
+        </div>
+        <div class="list">
+            <div style="flex: 1">Telor -  Rp. 28.000,-</div>
+            <button onclick="addToCart('telor', 1)">Add to Cart</button>
+            <button onclick="removeFromCart('telor')">remove From Cart</button>
+        </div>
+        <div class="list">
+            <div style="flex: 1">Madu -  Rp. 48.000,-</div>
+            <button onclick="addToCart('madu', 1)">Add to Cart</button>
+            <button onclick="removeFromCart('madu')">remove From Cart</button>
+        </div>
+        <div class="list">
+            <div style="flex: 1">Jahe -  Rp. 8.000,-</div>
+            <button onclick="addToCart('jahe', 1)">Add to Cart</button>
+            <button onclick="removeFromCart('jahe')">remove From Cart</button>
+        </div>
+        <div style="margin-top: 15px;"><a href="cart.html">View Cart</a></div>
+    </div>
+</body>
+<script src="delete.js"></script>
+</html>
